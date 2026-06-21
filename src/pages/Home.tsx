@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUpRight, Award, Briefcase, Code2 } from 'lucide-react'
 import { projects } from '../data/projects';
 import { BlurFade } from '../components/BlurFade';
 import { SpotlightCard } from '../components/SpotlightCard';
+import { GithubActivity } from '../components/GithubActivity';
 
 export default function Home() {
   const location = useLocation();
@@ -142,8 +143,7 @@ export default function Home() {
             SHAPING CODE.<br />
             SHIPPING CLARITY.
           </h1>
-          {/* Subtle background glow block */}
-          <div className="absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 bg-[var(--glow)] filter blur-[100px] pointer-events-none -z-10" />
+          {/* Subtle background glow block removed (now global) */}
         </BlurFade>
 
         <BlurFade delay={0.3} className="max-w-2xl space-y-6">
@@ -316,10 +316,9 @@ export default function Home() {
                 delay={0.15 + index * 0.1}
                 className="col-span-1"
               >
-                <SpotlightCard
+                  <SpotlightCard
                   className="glass border border-glass-border p-6 space-y-4 relative overflow-hidden h-full"
                 >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--glow-strong)] filter blur-[40px] pointer-events-none" />
                 <h3 className="font-display font-bold text-sm tracking-wider text-ink uppercase border-b border-line pb-2">
                   {category.title}
                 </h3>
@@ -337,6 +336,10 @@ export default function Home() {
               </BlurFade>
             ))}
           </div>
+        </BlurFade>
+
+        <BlurFade delay={0.4}>
+          <GithubActivity />
         </BlurFade>
       </section>
 
@@ -454,8 +457,7 @@ export default function Home() {
       <section id="contact" className="scroll-mt-24">
         <BlurFade delay={0.2}>
           <div className="glass border border-glass-border p-8 sm:p-16 text-center space-y-8 relative overflow-hidden">
-            {/* Subtle center background glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[var(--glow-strong)] filter blur-[80px] pointer-events-none" />
+            {/* Subtle center background glow removed (now global) */}
 
             <div className="space-y-4 max-w-xl mx-auto">
               <span className="font-mono text-[10px] tracking-[0.2em] text-ink-faint uppercase">

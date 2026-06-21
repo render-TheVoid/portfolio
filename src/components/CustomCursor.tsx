@@ -96,17 +96,25 @@ export function CustomCursor() {
       // Check idle (optimization)
       const dist = Math.abs(mouse.x - renderedMouse.x) + Math.abs(mouse.y - renderedMouse.y);
       const scaleDist = Math.abs(targetScale - currentScale);
-      
-      if (dist < 0.1 && scaleDist < 0.01 && Date.now() - lastMoveTime > 100) {
-        isIdle = true;
-      }
+      const isMouseStopped = Date.now() - lastMoveTime > 100 && dist < 0.1;
 
       // Update history
       if (hasMoved) {
-        history.push({ x: renderedMouse.x, y: renderedMouse.y });
-        if (history.length > 20) {
-          history.shift();
+        if (!isMouseStopped) {
+          history.push({ x: renderedMouse.x, y: renderedMouse.y });
+          if (history.length > 45) {
+            history.shift();
+          }
+        } else {
+          // Mouse stopped. Decay the trail.
+          if (history.length > 0) {
+            history.shift();
+          }
         }
+      }
+
+      if (isMouseStopped && scaleDist < 0.01 && history.length === 0) {
+        isIdle = true;
       }
 
       // Update DOM cursor (Circle)
@@ -125,46 +133,40 @@ export function CustomCursor() {
       ctx.clearRect(0, 0, width, height);
 
       // Draw trail
-      if (history.length > 1) {
-        for (let i = 0; i < history.length - 1; i++) {
-          const point = history[i];
-          const nextPoint = history[i + 1];
-          const progress = i / history.length; // 0 to 1
+      if (history.length > 2) {
+        ctx.beginPath();
+        ctx.moveTo(history[0].x, history[0].y);
 
-          ctx.beginPath();
-          ctx.moveTo(point.x, point.y);
-          
-          // Use quadratic curve to midpoints for a slightly smoother render if points are spaced
-          const xc = (point.x + nextPoint.x) / 2;
-          const yc = (point.y + nextPoint.y) / 2;
-          ctx.quadraticCurveTo(point.x, point.y, xc, yc);
-          
-          const alpha = progress * 0.6; // Taper opacity
-          ctx.strokeStyle = themeRef.current === 'dark' 
-            ? `rgba(255, 255, 255, ${alpha})` 
-            : `rgba(0, 0, 0, ${alpha})`;
-          
-          ctx.lineWidth = 0.5 + progress * 1.5;
-          
-          // Blur tapering (higher blur at the tail)
-          ctx.shadowBlur = (1 - progress) * 8;
-          ctx.shadowColor = themeRef.current === 'dark' ? 'white' : 'black';
-          
-          ctx.stroke();
+        for (let i = 1; i < history.length - 1; i++) {
+          const xc = (history[i].x + history[i + 1].x) / 2;
+          const yc = (history[i].y + history[i + 1].y) / 2;
+          ctx.quadraticCurveTo(history[i].x, history[i].y, xc, yc);
         }
         
-        // Connect the last midpoint exactly to the head
+        // Connect the last point
         const last = history[history.length - 1];
-        const prev = history[history.length - 2];
-        const xc = (prev.x + last.x) / 2;
-        const yc = (prev.y + last.y) / 2;
-        ctx.beginPath();
-        ctx.moveTo(xc, yc);
         ctx.lineTo(last.x, last.y);
-        ctx.strokeStyle = themeRef.current === 'dark' ? `rgba(255, 255, 255, 0.6)` : `rgba(0, 0, 0, 0.6)`;
-        ctx.lineWidth = 2;
-        ctx.shadowBlur = 0;
-        ctx.stroke();
+
+        const tail = history[0];
+        const head = last;
+        
+        // Prevent gradient error if tail and head are identical
+        if (tail.x !== head.x || tail.y !== head.y) {
+          const gradient = ctx.createLinearGradient(tail.x, tail.y, head.x, head.y);
+          const color = themeRef.current === 'dark' ? '255, 255, 255' : '0, 0, 0';
+          
+          // High intensity, tapering toward tail
+          gradient.addColorStop(0, `rgba(${color}, 0)`);
+          gradient.addColorStop(1, `rgba(${color}, 0.8)`);
+          
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = 1.5; // Solid core line
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          ctx.shadowBlur = 4; // Tight glow radius
+          ctx.shadowColor = `rgba(${color}, 0.8)`;
+          ctx.stroke();
+        }
       }
 
       if (!isIdle) {

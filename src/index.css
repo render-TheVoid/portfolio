@@ -14,8 +14,8 @@
   --glass-strong: rgba(255, 255, 255, 0.06);
   --glass-border: rgba(255, 255, 255, 0.1);
   --selection-bg: rgba(255, 255, 255, 0.15);
-  --glow: rgba(255, 255, 255, 0.05);
-  --glow-strong: rgba(255, 255, 255, 0.015);
+  --glow: rgba(255, 255, 255, 0.06);
+  --glow-strong: rgba(255, 255, 255, 0.10);
   --heading-gradient: linear-gradient(180deg, #ffffff 0%, #a3a3a3 100%);
   --spotlight-color: rgba(255, 255, 255, 0.06);
 }
@@ -32,8 +32,8 @@ html.light {
   --glass-strong: rgba(0, 0, 0, 0.06);
   --glass-border: rgba(0, 0, 0, 0.1);
   --selection-bg: rgba(0, 0, 0, 0.15);
-  --glow: rgba(0, 0, 0, 0.05);
-  --glow-strong: rgba(0, 0, 0, 0.025);
+  --glow: rgba(0, 0, 0, 0.06);
+  --glow-strong: rgba(0, 0, 0, 0.10);
   --heading-gradient: linear-gradient(180deg, #111111 0%, #666666 100%);
   --spotlight-color: rgba(0, 0, 0, 0.04);
 }

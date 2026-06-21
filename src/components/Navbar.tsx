@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sun, Moon, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
+import { useCommandPalette } from '../context/CommandPaletteContext';
 
 const navLinks = [
   { name: 'WORK', target: 'work' },
@@ -20,6 +21,7 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
+  const { openPalette } = useCommandPalette();
 
   // Handle body overflow lock when mobile menu is open
   useEffect(() => {
@@ -167,6 +169,23 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-2">
+            {/* Command Palette Trigger */}
+            <button
+              onClick={openPalette}
+              className="hidden sm:flex items-center gap-2 glass hover:bg-glass-strong border border-glass-border text-ink font-mono text-xs tracking-widest py-2 px-4 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
+              aria-label="Open command palette"
+            >
+              <Search className="w-3.5 h-3.5" />
+              <span>⌘K</span>
+            </button>
+            <button
+              onClick={openPalette}
+              className="sm:hidden text-ink hover:text-ink-dim focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink p-1.5 transition-colors"
+              aria-label="Open command palette"
+            >
+              <Search className="w-5 h-5" />
+            </button>
+
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
