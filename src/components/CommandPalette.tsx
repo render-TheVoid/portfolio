@@ -75,7 +75,7 @@ export function CommandPalette() {
     { id: 'proj-calc', title: 'Calculator', category: 'Projects', icon: <ArrowRight className="w-4 h-4" />, action: () => handleNavigateProject('calculator') },
 
     { id: 'link-res', title: 'Resume', category: 'Links', icon: <FileText className="w-4 h-4" />, action: () => handleExternalLink('/resume.pdf') },
-    { id: 'link-git', title: 'GitHub', category: 'Links', icon: <Github className="w-4 h-4" />, action: () => handleExternalLink('https://github.com/render-TheVoid') },
+    { id: 'link-git', title: 'GitHub', category: 'Links', icon: <Github className="w-4 h-4" />, action: () => handleExternalLink('https://github.com/rishhbh') },
     { id: 'link-lin', title: 'LinkedIn', category: 'Links', icon: <Linkedin className="w-4 h-4" />, action: () => handleExternalLink('https://linkedin.com/in/rishabhh-sharma') },
 
     { id: 'act-theme', title: `Toggle Theme (${theme === 'dark' ? 'Light' : 'Dark'})`, category: 'Actions', icon: theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />, action: () => { toggleTheme(); closePalette(); } }

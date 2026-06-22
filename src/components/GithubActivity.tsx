@@ -40,7 +40,7 @@ export function GithubActivity() {
         <div className="w-full overflow-x-auto scrollbar-none pb-2 cursor-grab active:cursor-grabbing">
           <div className="min-w-max text-ink-dim font-mono text-[10px] tracking-widest">
             <GitHubCalendar
-              username="render-TheVoid"
+              username="rishhbh"
               colorScheme={theme === 'dark' ? 'dark' : 'light'}
               theme={explicitTheme}
               blockRadius={0} // Brutalist sharp edges

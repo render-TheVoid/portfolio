@@ -6,7 +6,7 @@ export default function Footer() {
   const socialLinks = [
     {
       name: 'GitHub',
-      url: 'https://github.com/render-TheVoid',
+      url: 'https://github.com/rishhbh',
       icon: <Github className="w-4 h-4" />,
     },
     {

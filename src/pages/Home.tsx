@@ -480,7 +480,7 @@ export default function Home() {
               </a>
               <div className="flex gap-4 w-full sm:w-auto justify-center">
                 <a
-                  href="https://github.com/render-TheVoid"
+                  href="https://github.com/rishhbh"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass border border-glass-border hover:bg-glass-strong text-ink font-mono text-xs tracking-widest py-4 px-6 transition-colors flex items-center justify-center gap-2"

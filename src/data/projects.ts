@@ -55,7 +55,7 @@ export const projects: Project[] = [
       'Docker Compose'
     ],
     homeTags: ['TypeScript', 'Express.js', 'MongoDB', 'Docker', 'Gemini API'],
-    githubUrl: 'https://github.com/render-TheVoid/layerzero',
+    githubUrl: 'https://github.com/rishhbh/layerzero',
     liveUrl: 'https://layerzero.uchihamadara3472.workers.dev/',
     images: ['layerzero-one.png', 'layerzero-two.png']
   },
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     ],
     homeTags: ['React', 'Node/Express', 'MongoDB', 'Gemini API', 'i18next'],
     result: '1st place, Ideas to Impact 2026 Innovation Hackathon (Awadh Incubation Foundation, KMCLU Lucknow) — beat 50+ teams from 14+ institutions',
-    githubUrl: 'https://github.com/render-TheVoid/kaushal-ai',
+    githubUrl: 'https://github.com/rishhbh/kaushal-ai',
     liveUrl: 'https://thekaushal-ai.vercel.app/',
     images: ['kaushal.png']
   },
@@ -111,7 +111,7 @@ export const projects: Project[] = [
       'Docker'
     ],
     homeTags: ['React', 'Tailwind CSS', 'Ollama', 'Gemma 3 4B', 'Docker'],
-    githubUrl: 'https://github.com/render-TheVoid/deepsynth',
+    githubUrl: 'https://github.com/rishhbh/deepsynth',
     liveUrl: undefined, // Not deployed
     images: ['deepsynth-one.png', 'deepsynth-two.png']
   },
@@ -140,7 +140,7 @@ export const projects: Project[] = [
       'Docker Compose'
     ],
     homeTags: ['React', 'TypeScript', 'Stripe', 'Node.js', 'Docker'],
-    githubUrl: 'https://github.com/render-TheVoid/calculator',
+    githubUrl: 'https://github.com/rishhbh/calculator',
     liveUrl: 'https://calculator-67.vercel.app/',
     images: ['calculator-one.png', 'calculator-two.png']
   }
