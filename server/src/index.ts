@@ -9,18 +9,17 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+
+app.use(cors({
+  origin: FRONTEND_URL,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 app.use('/api/contact', contactRouter);
 
-// Serve frontend static files
-app.use(express.static(path.join(__dirname, '../../client/dist')));
-
-// Catch-all route to serve the React app
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
-});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
