@@ -107,7 +107,7 @@ export default function Home() {
     },
     {
       title: 'DevOps & Infra',
-      items: ['Docker', 'Docker Compose', 'GitHub Actions', 'Cloudflare Pages/Workers', 'Render', 'Vercel', 'Linux']
+      items: ['AWS EC2', 'Docker', 'Docker Compose', 'GitHub Actions', 'Cloudflare Pages/Workers', 'Render', 'Linux']
     },
     {
       title: 'Databases & Cache',

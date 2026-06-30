@@ -19,7 +19,7 @@ export const projects: Project[] = [
     name: 'LayerZero',
     tagline: 'AI-powered content summarization platform with a hybrid LLM architecture',
     problem: 'Most content summarization tools force users into a single AI provider and rely entirely on cloud-hosted AI. LayerZero combines cloud and local inference, giving users more control over privacy, performance, and operational costs. It allows summarizing PDFs, DOCX files, and web content using four selectable AI models, because sometimes you want the power of a cloud model, and sometimes you want your laptop to suffer instead.',
-    howItWorks: 'The platform unifies content ingestion and intelligent caching across multiple sources:\n1. Content Ingestion: Scrapes URLs with Axios/JSDOM and Mozilla Readability, or parses uploaded documents using pdf-parse (PDF) and mammoth (DOCX).\n2. Intelligent Caching: Extracts text, generates a SHA-256 content fingerprint, and checks an Upstash Redis caching layer. This deduplication reduces repeated summary latency from ~8.5s to ~150ms (~98% improvement).\n3. AI Summarization: Cache misses are routed to Gemini 2.5 Flash, Cerebras (GPT OSS 120B), local Gemma 4 via Ollama, or Sarvam 30B (for Hinglish/multilingual support).\n4. Export & Security: Summaries can be exported to cleanly formatted PDFs via jsPDF. The backend is secured with JWT httpOnly cookies, Zod payload validation, bcrypt hashing, and express-rate-limit middleware.',
+    howItWorks: 'The platform unifies content ingestion and intelligent caching across multiple sources:\n1. Content Ingestion: Scrapes URLs with Axios/JSDOM and Mozilla Readability, or parses uploaded documents using pdf-parse (PDF) and mammoth (DOCX).\n2. Intelligent Caching: Extracts text, generates a SHA-256 content fingerprint, and checks an Upstash Redis caching layer. This deduplication reduces repeated summary latency from ~8.5s to ~150ms (~98% improvement).\n3. AI Summarization: Cache misses are routed to Gemini 2.5 Flash, Cerebras (GPT OSS 120B), local Gemma 4 via Ollama, or Sarvam 30B (for Hinglish/multilingual support).\n4. Export & Security: Summaries can be exported to cleanly formatted PDFs via jsPDF. The backend is secured with JWT httpOnly cookies, Zod payload validation, bcrypt hashing, express-rate-limit middleware, and is deployed on AWS EC2.',
     keyFeatures: [
       'Multi-Format Ingestion: Scrapes URLs using JSDOM/Readability, parses PDFs using pdf-parse, and DOCX using mammoth.',
       'Intelligent Caching: Upstash Redis-powered caching with SHA-256 content fingerprinting, 7-day TTLs, and cache-first retrieval.',
@@ -27,7 +27,7 @@ export const projects: Project[] = [
       'Hinglish & Multilingual: Seamless translation and summarization workflows using Sarvam 30B for code-switched inputs.',
       'Hardened Security: JWT authorization in httpOnly cookies, Zod payload validation, bcrypt hashing, and express-rate-limit.',
       'Export Options: Generates cleanly formatted PDFs from generated summaries using jsPDF after converting markdown to plain text.',
-      'Infrastructure: Orchestrated multi-container Docker Compose configuration supporting React frontend, Node/Express backend, and Redis.'
+      'Infrastructure: Orchestrated multi-container Docker Compose configuration supporting React frontend, Node/Express backend (deployed on AWS EC2), and Redis.'
     ],
     techStack: [
       'React',
@@ -54,9 +54,10 @@ export const projects: Project[] = [
       'Gemma 4 (Ollama)',
       'Sarvam 30B',
       'Docker',
-      'Docker Compose'
+      'Docker Compose',
+      'AWS EC2'
     ],
-    homeTags: ['TypeScript', 'Express.js', 'Redis', 'Docker', 'Cerebras API'],
+    homeTags: ['TypeScript', 'Express.js', 'AWS EC2', 'Docker', 'Cerebras API'],
     githubUrl: 'https://github.com/rishhbh/layerzero',
     liveUrl: 'https://layerzero.uchihamadara3472.workers.dev/',
     images: ['layerzero-one.png', 'layerzero-two.png']

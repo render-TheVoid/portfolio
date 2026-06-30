@@ -165,7 +165,7 @@ export default function Navbar() {
             </ul>
 
             <a
-              href="https://drive.google.com/file/d/1_TSEuYMucfqFTDUs2-YR2tvL9uXo5ZBh/view?usp=sharing"
+              href="https://drive.google.com/file/d/1_TSEuYMucfqFTDUs2-YR2tvL9uXo5ZBh/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="glass hover:bg-glass-strong border border-glass-border text-ink font-mono text-xs tracking-widest py-2 px-4 transition-colors flex items-center gap-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
@@ -254,7 +254,7 @@ export default function Navbar() {
                 initial={{ x: -12, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: navLinks.length * 0.04 + 0.1, duration: 0.2, ease: 'easeOut' }}
-                href="https://drive.google.com/file/d/1_TSEuYMucfqFTDUs2-YR2tvL9uXo5ZBh/view?usp=sharing"
+                href="https://drive.google.com/file/d/1_TSEuYMucfqFTDUs2-YR2tvL9uXo5ZBh/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass hover:bg-glass-strong border border-glass-border text-ink text-center py-3 px-4 transition-colors flex items-center justify-center gap-2"

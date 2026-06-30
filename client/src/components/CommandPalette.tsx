@@ -74,7 +74,7 @@ export function CommandPalette() {
     { id: 'proj-ds', title: 'DeepSynth', category: 'Projects', icon: <ArrowRight className="w-4 h-4" />, action: () => handleNavigateProject('deepsynth') },
     { id: 'proj-calc', title: 'Calculator', category: 'Projects', icon: <ArrowRight className="w-4 h-4" />, action: () => handleNavigateProject('calculator') },
 
-    { id: 'link-res', title: 'Resume', category: 'Links', icon: <FileText className="w-4 h-4" />, action: () => handleExternalLink('/resume.pdf') },
+    { id: 'link-res', title: 'Resume', category: 'Links', icon: <FileText className="w-4 h-4" />, action: () => handleExternalLink('https://drive.google.com/file/d/1_TSEuYMucfqFTDUs2-YR2tvL9uXo5ZBh/view?usp=drive_link') },
     { id: 'link-git', title: 'GitHub', category: 'Links', icon: <Github className="w-4 h-4" />, action: () => handleExternalLink('https://github.com/rishhbh') },
     { id: 'link-lin', title: 'LinkedIn', category: 'Links', icon: <Linkedin className="w-4 h-4" />, action: () => handleExternalLink('https://linkedin.com/in/rishabhh-sharma') },
 
